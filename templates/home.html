@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>HOME</title>
+  </head>
+
+  <body>
+
+    WELCOME TO THE SITE
+
+    <form action="/results", method="POST">
+      type your adress:<br>
+      <input type="text" name="adress">
+    </form>
+    
+    {% if permission == True %}
+    <br>
+    You are at:
+    <br>
+    {{adress}}
+    
+    {% endif %}
+
+  </body>
+  
+</html>
+    
