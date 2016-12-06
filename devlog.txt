@@ -15,3 +15,6 @@ Edited design doc to reflect most recent changes: instead of inputting address a
 
 Asher Lasday -- 2016-12-05 22:24
 Linked darksky api to weather.py. played with printing out data, began to consider how to process it for use in app.py.
+
+felixR -- 2016-12-05 10:51
+Created maps.py, whihc introduced the google maps api that displays a map. This succeded, however, the dynamic maps that we want are dependet on a certain level of structure, struture that our adress input system does not offer. Additionally, when I try to use the geolocation feature I am met with a bad request resposne.
