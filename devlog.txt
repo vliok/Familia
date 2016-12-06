@@ -5,8 +5,10 @@ As of now this basic two file structure allows users to input an address and hav
 The user can then reenter a new address
 All future work will be built on this foundation, as home.html will display the results of looking up any adress
 
-kathyL -- 2016-12-05 9:40
+kathyL -- 2016-12-05 21:40
 edited home.html to have two options:
   a) page will ask for permission of your current geolocation using js
   b) you can type in the address, js autofill
   
+vincentL -- 2016-12-05 21:45
+Edited design doc to reflect most recent changes: instead of inputting address all in one line, now form is split up into country, state/territory, city, street, house num, and ZIP. This allows simpler robustification.
