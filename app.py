@@ -27,7 +27,7 @@ def overview():
         location = utils.maps.reverse_geo({'lat': lat, 'lng': lon})
     except:
         #if manually typing address
-        location = request.form["adress"]
+        location = request.form["adress"].replace(" ", "+")
 
     if(location == "" or location == " "):
         return render_template("home.html", action_type="results", address=location, status="reenter")
