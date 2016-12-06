@@ -1,21 +1,82 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>HOME</title>
-  </head>
+<head>
+  <title> HOME </title>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.5.0/base-min.css&pure/0.5.0/grids-min.css&pure/0.5.0/grids-responsive-min.css">
+</head>
 
   <body>
 
-    <!-- THE INTO WHERE YOU TYPE YOUR ADRESS -->
-    
     WELCOME TO THE SITE
 
-    <form action="/results", method="POST">
-      type your adress:<br>
-      <input type="text" name="adress">
+  <!-- THE PART WHERE THE HTML PAGE ASKS FOR ACCESS TO YOUR CURRENT LOCATION
+
+-->
+
+    <script>
+    var x=document.getElementById("demo");
+    window.onload = function getLocation()
+      {
+      if (navigator.geolocation)
+        {
+        navigator.geolocation.watchPosition(showPosition);
+        navigator.geolocation.watchPosition(showPosition2);
+        }
+      else{x.innerHTML="Geolocation is not supported by this browser.";}
+      }
+    function showPosition(position)
+      {
+      document.getElementById("lat").value=position.coords.latitude
+      }
+      function showPosition2(position)
+      {
+      document.getElementById("lon").value=position.coords.longitude;
+      //document.getElementById("loc_form").submit();
+      }
+    </script>
+    <form id = "loc_form" action="results" method="POST">
+    <input class = "form-control" id="lat" type="text" name="lat" value="" readonly>
+    <input class = "form-control" id="lon" type="text" name = "lon" value="" readonly>
+    <input type="submit" value = "Current Location">
     </form>
-    
+    <BR><BR>
+
+
+<!-- THE INTO WHERE YOU TYPE YOUR ADRESS -->
+
+    <form class="pure-form pure-form-aligned" action='results' method="POST">
+
+          <fieldset>
+
+            <div class="pure-control-group">
+                <label for="origin">Enter Your Location</label>
+                <input class="pure-input-2-3" id="origin" type="text" placeholder="Type origin here..." name="adress">
+            </div>
+
+
+<!-- JAVASCRIPT TO AUTOCOMPLETE YOUR GOOGLE LOCATION
+      input 1 : takes address entered from search bar
+      options: sets country restrictions to USA
+-->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+    <script type="text/javascript">
+      var input1 = document.getElementById('origin');
+      var options = {componentRestrictions: {country: 'us'}};
+      new google.maps.places.Autocomplete(input1, options);
+    </script>
+
+            <div class="pure-controls">
+                <button type="submit" name="b" value="Search" class="pure-button pure-button-primary">Search</button>
+            </div>
+
+        </fieldset>
+
+
+<!-- DISPLAY ADDRESS HERE
+-->
     {% if permission == True %}
     <br>
     You are at:
@@ -23,10 +84,10 @@
     {{adress}}
 
     <!-- PUT THE VARIOUS STUFF HERE -->
-    
+
     {% endif %}
 
+
   </body>
-  
+
 </html>
-    
