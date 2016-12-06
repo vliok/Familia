@@ -8,9 +8,13 @@ result = request.read()
 d = json.loads(result)
 
 for key in d:
-    print key, 'corresponds to', d[key]
-    print 
+    if (key == "hourly"): 
+        for k2 in d[key]:
+            print k2
+            print "corresponds to"
+            print d[key][k2]
+            print 
 
-
+#use icon to create a getBg fxn
 
 
