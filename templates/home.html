@@ -38,9 +38,9 @@
       }
     </script>
     <form id = "loc_form" action="results" method="POST">
-    <input class = "form-control" id="lat" type="text" name="lat" value="" readonly>
-    <input class = "form-control" id="lon" type="text" name = "lon" value="" readonly>
-    <input type="submit" value = "Current Location">
+    <input class = "form-control" id="lat" type="text" name="lat" >
+    <input class = "form-control" id="lon" type="text" name = "lon">
+    <input type="submit" name = "submit" value = "Current Location">
     </form>
     <BR><BR>
 
@@ -73,11 +73,11 @@
             </div>
 
         </fieldset>
-	  
+
 
 	  <!-- DISPLAY ADDRESS HERE
 	    -->
-	  
+
 
 	  {% if status == "show_info" %}
 	  <br>
@@ -96,8 +96,8 @@
 	     src= {{get_map}} allowfullscreen> <!-- get_map is str from app -->
 	    <!-- if the API does not understand your input, it will give you a world wide map-->
 	  </iframe>
-	  
-	  
+
+
 	  {% elif status == "reenter" %}
 
 	  <br>
@@ -105,10 +105,10 @@
 	  <br>
 	  please enter again
 	  <br>
-	  
+
 	  {% endif %}
-	  
-	  
+
+
   </body>
-  
+
 </html>
