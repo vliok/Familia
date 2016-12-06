@@ -73,21 +73,42 @@
             </div>
 
         </fieldset>
+	  
 
+	  <!-- DISPLAY ADDRESS HERE
+	    -->
+	  
 
-<!-- DISPLAY ADDRESS HERE
--->
-    {% if permission == True %}
-    <br>
-    You are at:
-    <br>
-    {{adress}}
+	  {% if status == "show_info" %}
+	  <br>
+	  You are at:
+	  <br>
+	  {{address}}
+	  <br>
+	  <!-- PUT THE VARIOUS STUFF HERE -->
 
-    <!-- PUT THE VARIOUS STUFF HERE -->
+	  <!--the map procurement mechanism-->
 
-    {% endif %}
+	  <iframe
+	     width="600"
+	     height="450"
+	     frameborder="0" style="border:0"
+	     src= {{get_map}} allowfullscreen> <!-- get_map is str from app -->
+	    <!-- if the API does not understand your input, it will give you a world wide map-->
+	  </iframe>
+	  
+	  
+	  {% elif status == "reenter" %}
 
-
+	  <br>
+	  YOU ENTERED SOMETHING WRONG
+	  <br>
+	  please enter again
+	  <br>
+	  
+	  {% endif %}
+	  
+	  
   </body>
-
+  
 </html>
