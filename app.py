@@ -6,9 +6,17 @@ app = Flask(__name__)
 
 #status can either be - no_info, show_info, reenter
 
+
+
+
+
 @app.route("/")
 def home():
     return render_template("home.html", action_type="results", status="no_info")
+
+
+
+
 
 @app.route("/results", methods=["GET","POST"])
 def overview():
