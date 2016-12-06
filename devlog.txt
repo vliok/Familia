@@ -4,3 +4,9 @@ home.html is in the templates folder
 As of now this basic two file structure allows users to input an address and have the address spit back out
 The user can then reenter a new address
 All future work will be built on this foundation, as home.html will display the results of looking up any adress
+
+kathyL -- 2016-12-05 9:40
+edited home.html to have two options:
+  a) page will ask for permission of your current geolocation using js
+  b) you can type in the address, js autofill
+  
