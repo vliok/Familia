@@ -9,7 +9,7 @@ kathyL -- 2016-12-05 21:40
 edited home.html to have two options:
   a) page will ask for permission of your current geolocation using js
   b) you can type in the address, js autofill
-  
+
 vincentL -- 2016-12-05 21:45
 Edited design doc to reflect most recent changes: instead of inputting address all in one line, now form is split up into country, state/territory, city, street, house num, and ZIP. This allows simpler robustification.
 
@@ -24,3 +24,6 @@ kathyL -- 2016-12-06 12:28
   a) convert an address to geolocation (lat and lon)
   b) convert geolocation into a string address
   corrected display of maps
+
+kathyL -- 2016-12-06 13:51
+    fixed google maps bug
