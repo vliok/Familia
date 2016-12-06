@@ -12,3 +12,6 @@ edited home.html to have two options:
   
 vincentL -- 2016-12-05 21:45
 Edited design doc to reflect most recent changes: instead of inputting address all in one line, now form is split up into country, state/territory, city, street, house num, and ZIP. This allows simpler robustification.
+
+Asher Lasday -- 2016-12-05 22:24
+Linked darksky api to weather.py. played with printing out data, began to consider how to process it for use in app.py.
