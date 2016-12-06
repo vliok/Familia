@@ -18,3 +18,9 @@ Linked darksky api to weather.py. played with printing out data, began to consid
 
 felixR -- 2016-12-05 10:51
 Created maps.py, whihc introduced the google maps api that displays a map. This succeded, however, the dynamic maps that we want are dependet on a certain level of structure, struture that our adress input system does not offer. Additionally, when I try to use the geolocation feature I am met with a bad request resposne.
+
+kathyL -- 2016-12-06 12:28
+  fixed geolocation feature, added python functions in utils that can
+  a) convert an address to geolocation (lat and lon)
+  b) convert geolocation into a string address
+  corrected display of maps
