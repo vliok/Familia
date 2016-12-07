@@ -32,6 +32,3 @@ felixR -- 2016-12-06 19:45
 Added an error message, that allows users to manually eneter tehir location if geolocation does not work.
 Added Stylistic improvements to the product, especially teh presentation of the address on the site
 Errors: the geolocation still does not work for me, perhpas internet specific--error is not as consistent as it previuoslly was? 
-
-vincentL -- 2016-12-06 22:50
-Linked foursquare api to movies.py
