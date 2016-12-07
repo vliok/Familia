@@ -13,6 +13,6 @@ def get_venues(lat, lon, query):
     for v in venues:
         #vname = v["venue"]["categories"][0]["name"]
         venue = v["venue"]["name"]
-        adress = v["venue"]["formattedAddress"]
+        #adress = v["venue"]["formattedAddress"]
         llist.append(venue)
     return llist
