@@ -1,17 +1,64 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Familia | Welcome</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.5.0/base-min.css&pure/0.5.0/grids-min.css&pure/0.5.0/grids-responsive-min.css">
 
-<head>
-  <title> HOME </title>
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
-  <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.5.0/base-min.css&pure/0.5.0/grids-min.css&pure/0.5.0/grids-responsive-min.css">
-</head>
+    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+  </head>
+  <style>
+  body{
+    background-color: #82E5F1;
+  }
+label {
+  display: inline-block;
+}
+  </style>
+  <body>
+
+
+
+    <!-- Start Top Bar -->
+    <div class="top-bar">
+      <div class="row">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Familia</li>
+            <li class="has-submenu">
+              <a href="#">One</a>
+              <ul class="submenu menu vertical" data-submenu>
+                <li><a href="#">One</a></li>
+                <li><a href="#">Two</a></li>
+                <li><a href="#">Three</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li><input type="search" placeholder="Search"></li>
+            <li><button type="button" class="button">Search</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- End Top Bar -->
 
   <body>
 
-    WELCOME TO THE SITE
+{% block content %}
 
+  <center>
+
+<div class="header" style="background-color:#07C7EA">
+    <h2> <strong>Familia Maps </strong></h2>
+</div>
   <!-- THE PART WHERE THE HTML PAGE ASKS FOR ACCESS TO YOUR CURRENT LOCATION
 
 -->
@@ -37,13 +84,15 @@
       //document.getElementById("loc_form").submit();
       }
     </script>
+    <!-- Geolocation stuff
     <form id = "loc_form" action="results" method="POST">
-    <input class = "form-control" id="lat" type="text" name="lat" >
-    <input class = "form-control" id="lon" type="text" name = "lon">
+    <input class = "form-control" id="lat" type="text" name="lat" style="width: 300px;">
+    <label>  <input class = "form-control" id="lon" type="text" name = "lon" style="width: 300px;">
+  </label>
     <input type="submit" name = "submit" value = "Current Location">
     </form>
     <BR><BR>
-
+-->
 
 <!-- THE INTO WHERE YOU TYPE YOUR ADRESS -->
 
@@ -53,12 +102,16 @@
 
             <div class="pure-control-group">
                 <label for="origin">Enter Your Location</label>
-                <input class="pure-input-2-3" id="origin" type="text" placeholder="Type origin here..." name="adress">
+                <input class="pure-input-2-3" id="origin" type="text" placeholder="Type origin here..." name="adress" style="width: 300px;">
+            </div>
+            <div class="pure-controls">
+                <button type="submit" name="b" value="Search" class="pure-button pure-button-primary">Search</button>
             </div>
 
-
 <!-- JAVASCRIPT TO AUTOCOMPLETE YOUR GOOGLE LOCATION
-      input 1 : takes address entered from search bar
+      input  <div class="pure-controls">
+            <button type="submit" name="b" value="Search" class="pure-button pure-button-primary">Search</button>
+        </div> 1 : takes address entered from search bar
       options: sets country restrictions to USA
 -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
@@ -68,9 +121,6 @@
       new google.maps.places.Autocomplete(input1, options);
     </script>
 
-            <div class="pure-controls">
-                <button type="submit" name="b" value="Search" class="pure-button pure-button-primary">Search</button>
-            </div>
 
         </fieldset>
 
@@ -130,7 +180,29 @@
 
 	  {% endif %}
 
+{% endblock %}
+    <div class="row column">
+      <hr>
+      <ul class="menu">
+        <li>Familia</li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li class="float-right">Copyright 2016</li>
+      </ul>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
 
   </body>
+
 
 </html>
