@@ -19,7 +19,7 @@ Linked darksky api to weather.py. played with printing out data, began to consid
 felixR -- 2016-12-05 10:51
 Created maps.py, whihc introduced the google maps api that displays a map. This succeded, however, the dynamic maps that we want are dependet on a certain level of structure, struture that our adress input system does not offer. Additionally, when I try to use the geolocation feature I am met with a bad request resposne.
 
-kathyL -- 2016-12-06 12:28
+kathyL -- 2016-12-06 00:28
   fixed geolocation feature, added python functions in utils that can
   a) convert an address to geolocation (lat and lon)
   b) convert geolocation into a string address
@@ -31,10 +31,13 @@ kathyL -- 2016-12-06 13:51
 felixR -- 2016-12-06 19:45
 Added an error message, that allows users to manually eneter tehir location if geolocation does not work.
 Added Stylistic improvements to the product, especially teh presentation of the address on the site
-Errors: the geolocation still does not work for me, perhpas internet specific--error is not as consistent as it previuoslly was? 
+Errors: the geolocation still does not work for me, perhpas internet specific--error is not as consistent as it previuoslly was?
 
 vincentL -- 2016-12-06 22:50
 Linked foursquare api to movies.py
 
 kathyL -- 2016-12-06 22:54
 Linked foursquare api to foursquare.py to get nearyby resturants, linked foundation template
+
+kathyL -- 2016-12-06 00:02
+separated query results into food, coffee. added shops and outdoors. added halal file. display boxes

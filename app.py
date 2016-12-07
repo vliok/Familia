@@ -41,10 +41,15 @@ def overview():
     if(location == "" or location == " "):
         return render_template("home.html", action_type="results", address=location, view_address=view_location, status="reenter")
 
-    map_code = utils.maps.get_map_query(location);
-    venueList = utils.foursquare.get_venues(lat, lon)[0] # get trending venues
+    map_code = utils.maps.get_map_query(location)
 
-    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList)
+    venueList = []
+    queries = ["food", "coffee", "shops", "outdoors"]
+    for q in queries:
+        venueList.append(utils.foursquare.get_venues(lat, lon, q))
+        
+
+    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries)
 
 
 if __name__ == "__main__":

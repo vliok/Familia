@@ -155,12 +155,37 @@ label {
 	  <!-- PUT THE VARIOUS STUFF HERE -->
 
 	  <!--the map procurement mechanism-->
-    Resturants Near By:
-    <ul>
-{% for v in venues %}
-<li>{{v}}</li>
-{% endfor %}
-</ul>
+     Near By:
+
+     <div class="row">
+       {% for v in venues[:2] %}
+       <div class="small-5 columns" style="background-color:white">
+        <strong> {{q[venues.index(v)]}} </strong><br>
+         {% for name in v[:4] %}
+         {{name}}
+         <br>
+       {% endfor %}
+
+       </div>
+            {% endfor %}
+     </div>
+
+<br>
+
+          <div class="row">
+            {% for v in venues[2:4] %}
+            <div class="small-5 columns" style="background-color:white">
+                <strong> {{q[venues.index(v)]}} </strong><br>
+              {% for name in v[:4] %}
+              {{name}}
+              <br>
+            {% endfor %}
+
+            </div>
+                 {% endfor %}
+          </div>
+
+
 	  <iframe
 	     width="600"
 	     height="450"
