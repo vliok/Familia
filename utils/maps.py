@@ -36,3 +36,24 @@ def geo_loc(location):
                 geometry = result_dic['geometry'] #geometry is another dictionary
                 loc = geometry['location'] #yet another dictionary
                 return loc
+            
+def getGoogleJSON(origin, destination, mode):
+# returns a dictionary of Google Map route information
+        org = origin
+        dest = destination
+        now = int(time.time())
+        if isinstance(origin,dict):
+                org = str(origin["latitude"])+","+str(origin["longitude"])
+                origin = origin['stationName']
+        if isinstance(destination,dict):
+                dest = str(destination["latitude"])+","+str(destination["longitude"])
+                destination = destination['stationName']
+        url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&mode=%s&departure_time=%s&key=%s" % (org, dest, mode, now, key)
+        request = urllib2.urlopen(url)
+        result = request.read()
+        d = json.loads(result)
+        if d['status'] != "OK":
+                return "No %s directions exist between %s and %s." %(mode, origin, destination)
+        else:
+                rlist = d['routes']
+                return rlist
