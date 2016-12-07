@@ -26,7 +26,7 @@ def overview():
         lon = float(request.form["lon"])
         location = utils.maps.reverse_geo({'lat': lat, 'lng': lon})
         view_location = location.replace("+", " ") #making sure that it is defined
-        view_location = view_location("%2C", ",")
+        view_location = view_location.replace("%2C", ",")
         askIfCor=True#a way for us to ask our user if their adress is correct
     except:
         #if manually typing address
