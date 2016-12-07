@@ -19,11 +19,11 @@ for key in d:
 
 def backgrounder():
     for key in d:
-        if (key == "hourly"):
-            for k2 in d[key]:
-                if (k2 == "icon"):
-                    print k2
-                    print "corresponds to"
-                    print d[key][k2]
-                    print
+    if (key == "hourly"):
+        for k2 in d[key]:
+            if (k2 == "icon"):
+                print k2
+                print "corresponds to"
+                print d[key][k2]
+                print
 
