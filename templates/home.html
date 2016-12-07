@@ -93,10 +93,10 @@
 	  <br>
 	  PLEASE ENTER YOUR LOCATION MANUALLY
 	  <br>
-				     
-	  
+
+
 	  {% endif %}
-	  
+
 	  <br>
 	  You are at:
 	  <br>
@@ -105,7 +105,12 @@
 	  <!-- PUT THE VARIOUS STUFF HERE -->
 
 	  <!--the map procurement mechanism-->
-
+    Resturants Near By:
+    <ul>
+{% for v in venues %}
+<li>{{v}}</li>
+{% endfor %}
+</ul>
 	  <iframe
 	     width="600"
 	     height="450"

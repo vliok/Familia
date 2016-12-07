@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-import urllib2, json, os, utils.maps
+import urllib2, json, os, utils.maps, utils.foursquare
 
 app = Flask(__name__)
 
@@ -33,13 +33,18 @@ def overview():
         view_location=request.form["adress"]
         location = view_location.replace(" ", "+")
         askIfCor=False
+        latlon = utils.maps.geo_loc(location)
+        lat = latlon["lat"]
+        lon = latlon["lng"]
+
 
     if(location == "" or location == " "):
         return render_template("home.html", action_type="results", address=location, view_address=view_location, status="reenter")
 
     map_code = utils.maps.get_map_query(location);
+    venueList = utils.foursquare.get_venues(lat, lon)[0] # get trending venues
 
-    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor)
+    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList)
 
 
 if __name__ == "__main__":
