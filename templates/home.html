@@ -80,10 +80,22 @@
 
 
 	  {% if status == "show_info" %}
+
+	  {% if askIfCorrect == True %}
+	  <br>
+	  WE CURRENTLLY HAVE YOUR ADDRESS AS:
+	  <br>
+	  {{view_adress}}
+	  <br>
+	  IF THIS IS CORRCET PROCCEED< IF NOT OUR GEOLOCATION SERVICE DOES NOT SEEM TO WORK FOR YOU, <br> PLEASE ENTER YOUR LOCATION MANUALLY<br>
+				     
+	  
+	  {% endif %}
+	  
 	  <br>
 	  You are at:
 	  <br>
-	  {{address}}
+	  {{view_address}}
 	  <br>
 	  <!-- PUT THE VARIOUS STUFF HERE -->
 
