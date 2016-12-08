@@ -44,16 +44,35 @@ def overview():
     map_code = utils.maps.get_map_query(location)
 
     venueList = []
+    markerList = []
+    bigL = []
     queries = ["food", "coffee", "shops", "outdoors"]
     for q in queries:
+<<<<<<< HEAD
         venueList.append(utils.foursquare.get_venues(lat, lon, q))
+=======
+        venueList.append(utils.foursquare.get_venues(lat, lon, q, 0))
+        markerList.append(utils.foursquare.get_venues(lat, lon, q,1))
+    i = 0
+    j = 0
+    length = len(venueList)
+    while i < length:
+        while j < length:
+            bigL.append([str(venueList[i][j].replace("'",'')), markerList[i][j][0],markerList[i][j][1], j])
+            j +=1
+        i +=1
+>>>>>>> 1c619a835a515ed1a9a3220c6a59ff6cea113c5e
 
     #movies section
     queries.append("movie theaters")
     venueList.append(utils.movies.get_movies(lat, lon, 4))
 
+<<<<<<< HEAD
     return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon)
 
+=======
+    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon, coords=bigL)
+>>>>>>> 1c619a835a515ed1a9a3220c6a59ff6cea113c5e
 
 def carts():
     url = "./static/carts.json"
@@ -62,7 +81,24 @@ def carts():
     carts = d["data"][0]
     return carts
 
+<<<<<<< HEAD
 print carts()
+=======
+def carts():
+    url = "./static/carts.json"
+    f = open(url, "r").read()
+    d = json.loads(f)
+    carts = d["data"]
+    retL = []
+    for c in carts:
+        lat = c[-5]
+        lng = c[-4]
+        if len(lat) > 7:
+            retL.append([c[0],lat,lng])
+    print retL
+
+#print carts()
+>>>>>>> 1c619a835a515ed1a9a3220c6a59ff6cea113c5e
 if __name__ == "__main__":
     app.debug = True
     app.run()
