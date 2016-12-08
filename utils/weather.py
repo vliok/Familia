@@ -55,9 +55,12 @@ def humidity(lon, lat):
                     #return d[key][k2]                                                                                                                                                                      
 def main(lon, lat):
     a = backgrounder(lon, lat)
-    b = (temp(lon, lat))
-    c = (humidity(lon, lat))
-    L = [a, b, c]
+    b = str(temp(lon, lat))
+    c = str(humidity(lon, lat))
+    L = []
+    L.append(a)
+    L.append(b)
+    L.append(c)
     return L
 
                     
