@@ -47,14 +47,22 @@ def overview():
     queries = ["food", "coffee", "shops", "outdoors"]
     for q in queries:
         venueList.append(utils.foursquare.get_venues(lat, lon, q))
-    
-    #movies section    
+
+    #movies section
     queries.append("movie theaters")
     venueList.append(utils.movies.get_movies(lat, lon, 4))
 
-    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries)
+    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon)
 
 
+def carts():
+    url = "./static/carts.json"
+    f = open(url, "r").read()
+    d = json.loads(f)
+    carts = d["data"][0]
+    return carts
+
+print carts()
 if __name__ == "__main__":
     app.debug = True
     app.run()

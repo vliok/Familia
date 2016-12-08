@@ -16,3 +16,7 @@ def get_venues(lat, lon, query):
         #adress = v["venue"]["formattedAddress"]
         llist.append(venue)
     return llist
+
+
+
+    
