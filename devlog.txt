@@ -59,6 +59,10 @@ This file holds get_events, which returns a set number of events in your area vi
 <<<<<<< HEAD
 =======
 
+asherL -- 2016-12-08 0:24
+Fixing weather.py, fxns for temp, background image, and humidity are finished. 
+
 kathyL -- 2016-12-08 7:55
 display results in google maps, each marker w place name parsed and uploaded halal file. 
 >>>>>>> 1c619a835a515ed1a9a3220c6a59ff6cea113c5e
+
