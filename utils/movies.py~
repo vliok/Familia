@@ -13,4 +13,4 @@ def get_movies(lat,lon,lim):
         retList.append(venue["venue"]["name"])
     return retList
 
-
+print get_movies(40.3,-74,4)
