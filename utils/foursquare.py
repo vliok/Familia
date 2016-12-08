@@ -11,8 +11,6 @@ def get_venues(lat, lon, query, n):
     venues = d["response"]["groups"][0]["items"][:4]
     llist = []
     for v in venues:
-        #vname = v["venue"]["categories"][0]["name"]
-        #print v
         if n==0:
             venue = v["venue"]["name"]
             llist.append(venue)
@@ -24,32 +22,6 @@ def get_venues(lat, lon, query, n):
                 lat = 0
                 lng = 0
             llist.append([lat,lng])
-        #adress = v["venue"]["formattedAddress"]
-<<<<<<< HEAD
-        llist.append(venue)
-    return llist
-
-
-
-    
-=======
     return llist[:4]
 
-def carts():
-    url = "../static/carts.json"
-    f = open(url, "r").read()
-    d = json.loads(f)
-    carts = d["data"][44000:46000]
-    retL = []
-    for c in carts:
-        lat = c[-5]
-        lng = c[-4]
-        try:
-            if len(lat) > 7:
-                retL.append([c[0],lat,lng])
-        except:
-            pass
-    return retL
-
-#print get_venues(40.1293612931,-73.1293512351, "shops",0)
->>>>>>> 1c619a835a515ed1a9a3220c6a59ff6cea113c5e
+print get_venues(40.008302846234, -73.972183912863, "food", 0)

@@ -56,13 +56,9 @@ felixR -- 2016-12-07 24:00
 Added events.py
 This file holds get_events, which returns a set number of events in your area via the meetup api
 -will be intergrated into the full project soon
-<<<<<<< HEAD
-=======
 
 asherL -- 2016-12-08 0:24
-Fixing weather.py, fxns for temp, background image, and humidity are finished. 
+Fixing weather.py, fxns for temp, background image, and humidity are finished.
 
 kathyL -- 2016-12-08 7:55
-display results in google maps, each marker w place name parsed and uploaded halal file. 
->>>>>>> 1c619a835a515ed1a9a3220c6a59ff6cea113c5e
-
+display results in google maps, each marker w place name parsed and uploaded halal file.
