@@ -48,6 +48,3 @@ Finished the icon pull fxn and started working on temp fxn. parsing data is much
 vincentL -- 2016-12-07 14:05
 Finished function in movies.py that returns list of nearby movie theaters
 To be implemented in app.py
-
-vincentL -- 2016-12-07 22:10
-There's now a movie theaters section where list of nearby movie theaters is displayed
