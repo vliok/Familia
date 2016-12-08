@@ -18,12 +18,5 @@ def get_venues(lat, lon, query):
     return llist
 
 
-def carts():
-    url = "../static/carts.json"
-    f = open(url, "r").read()
-    d = json.loads(f)
-    carts = d["data"][0]
-    return carts
 
-print carts()
     
