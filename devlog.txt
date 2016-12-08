@@ -41,3 +41,13 @@ Linked foursquare api to foursquare.py to get nearyby resturants, linked foundat
 
 kathyL -- 2016-12-06 00:02
 separated query results into food, coffee. added shops and outdoors. added halal file. display boxes
+
+asher--2016-12-07 14:05
+Finished the icon pull fxn and started working on temp fxn. parsing data is much faster now that one fxn works. also spent time reading docs more closely and looking at a library someone else wrote for darksky api.
+
+vincentL -- 2016-12-07 14:05
+Finished function in movies.py that returns list of nearby movie theaters
+To be implemented in app.py
+
+vincentL -- 2016-12-07 22:10
+There's now a movie theaters section where list of nearby movie theaters is displayed

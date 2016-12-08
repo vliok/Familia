@@ -1,4 +1,4 @@
-≈import urllib2, json, urllib
+import urllib2, json, urllib
 key = "cc75d8edb8caaac081449e4871136ffe"
 #https://api.darksky.net/forecast/[key]/[latitude],[longitude] (proper format)
 url = "https://api.darksky.net/forecast/cc75d8edb8caaac081449e4871136ffe/40.7128,74.0059"

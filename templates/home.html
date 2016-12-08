@@ -185,6 +185,22 @@ label {
                  {% endfor %}
           </div>
 
+<br>
+
+	  <div class="row">
+            {% for v in venues[4:5] %}
+            <div class="small-5 columns" style="background-color:white">
+                <strong> {{q[venues.index(v)]}} </strong><br>
+              {% for name in v[:4] %}
+              {{name}}
+              <br>
+            {% endfor %}
+
+            </div>
+                 {% endfor %}
+          </div>
+
+<br>
 
 	  <iframe
 	     width="600"
