@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-import json, os, utils.maps, utils.foursquare, utils.movies
+import json, os, utils.maps, utils.foursquare, utils.movies, utils.events
 
 app = Flask(__name__)
 
@@ -61,6 +61,11 @@ def overview():
     #movies section
     queries.append("movie theaters")
     venueList.append(utils.movies.get_movies(lat, lon, 4))
+
+    #events section
+    queries.append("events")
+    venueList.append(utils.events.get_events(lat, lon, 10))
+
     return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon, coords=bigL)
 
 

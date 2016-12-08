@@ -64,3 +64,9 @@ Fixing weather.py, fxns for temp, background image, and humidity are finished.
 
 kathyL -- 2016-12-08 7:55
 display results in google maps, each marker w place name parsed and uploaded halal file.
+
+felixR -- 2016-12-08 5:10
+Linked the functions in events.py to the actual site, by means of app.py.
+Asa result the events sectin of our site is complttly useable.
+Major Bug Discovered--For some addresses: try typing 345 into the address bar and click the first suggested location.
+For this location, after hitting enter, the site breaks, it supposedlly du eto ine 58 in app.py. I stronglly suspect, due to error messages and the like that teh error is due to non ascii charechters that are being pulled from teh foursquare api.
