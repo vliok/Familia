@@ -1,3 +1,5 @@
+Team Familia - Vincent Liok, Asher Lasday, Kathy Lau, Felix Rieg-Baumhauer
+
 felixR -- 2016-12-04 21:00
 Created app.py and home.html
 home.html is in the templates folder
