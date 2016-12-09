@@ -36,7 +36,38 @@
       </div>
       <div class="medium-6 large-5 columns">
         <h3>My Awesome Product</h3>
-        <p>Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in.</p>
+
+
+          <div id="map" style="width: 500px; height: 400px;"></div>
+
+          <script type="text/javascript">
+            var locations = {{info|safe}};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: new google.maps.LatLng({{clat}}, {{clon}}),
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) {
+              marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+              });
+
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                  infowindow.setContent(locations[i][0]);
+                  infowindow.open(map, marker);
+                }
+              })(marker, i));
+            }
+          </script>
+        <p></p>
 
         <label>Size
         <select>

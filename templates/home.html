@@ -161,7 +161,7 @@ label {
      <div class="row">
        {% for v in venues[:2] %}
        <div class="small-5 columns" style="background-color:white">
-        <strong> {{q[venues.index(v)]}} </strong><br>
+        <strong> <a href="results/{{q[venues.index(v)]}}/{{clat}}/{{clon}}">{{q[venues.index(v)]}}</a>  </strong><br>
          {% for name in v[:4] %}
          {{name}}
          <br>
@@ -176,7 +176,7 @@ label {
           <div class="row">
             {% for v in venues[2:4] %}
             <div class="small-5 columns" style="background-color:white">
-                <strong> {{q[venues.index(v)]}} </strong><br>
+                <strong><a href="results/{{q[venues.index(v)]}}/{{clat}}/{{clon}}">{{q[venues.index(v)]}}</a>  </strong><br>
               {% for name in v[:4] %}
               {{name}}
               <br>
@@ -191,7 +191,7 @@ label {
 	  <div class="row">
             {% for v in venues[4:6] %}
             <div class="small-5 columns" style="background-color:white">
-                <strong> {{q[venues.index(v)]}} </strong><br>
+                <strong><a href="results/{{q[venues.index(v)]}}/{{clat}}/{{clon}}">{{q[venues.index(v)]}}</a>   </strong><br>
               {% for name in v[:4] %}
               {{name}}
               <br>

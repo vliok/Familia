@@ -48,8 +48,8 @@ def overview():
     bigL = []
     queries = ["food", "coffee", "shops", "outdoors"]
     for q in queries:
-        venueList.append(utils.foursquare.get_venues(lat, lon, q, 0))
-        markerList.append(utils.foursquare.get_venues(lat, lon, q,1))
+        venueList.append(utils.foursquare.get_venues(lat, lon, q, 0, 4))
+        markerList.append(utils.foursquare.get_venues(lat, lon, q, 1, 4))
     i = 0
     j = 0
     length = len(venueList)
@@ -68,6 +68,33 @@ def overview():
 
     return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon, coords=bigL)
 
+
+'''
+@app.route("/results/<query>/<lat>/<lon>", methods=["GET","POST"])
+def detailed_search(query, lat, lon):
+    venueList = []
+    markerList = []
+    bigL = []
+    venueList.append(utils.foursquare.get_venues(lat, lon, query, 0, 8))
+    markerList.append(utils.foursquare.get_venues(lat, lon, query,1, 8))
+    i = 0
+    j = 0
+    length = len(venueList)
+    while i < length:
+        while j < length:
+            bigL.append([str(venueList[i][j].replace("'",'')), markerList[i][j][0],markerList[i][j][1], j])
+            j +=1
+        i +=1
+    #movies section
+    venueList.append(utils.movies.get_movies(lat, lon, 8))
+    #events section
+    venueList.append(utils.events.get_events(lat, lon, 10))
+
+    xyList = []
+    inList = []
+
+    return render_template("results.html", coords=xyList, info=inList)
+'''
 
 def carts():
     url = "./static/carts.json"
