@@ -39,7 +39,7 @@ def temp(lon, lat):
 #                    print d[key][k2]
                     for k3 in d[key][k2][0]:
                         if (k3 == "temperature"):
-                            print d[key][k2][0][k3]
+                            return d[key][k2][0][k3]
                     #return d[key][k2]
 
 def humidity(lon, lat):
@@ -51,7 +51,7 @@ def humidity(lon, lat):
 #                    print d[key][k2][0]                                                                                                                                                                    
                     for k3 in d[key][k2][0]:
                         if (k3 == "humidity"):
-                            print d[key][k2][0][k3]
+                            return d[key][k2][0][k3]
                     #return d[key][k2]                                                                                                                                                                      
 def main(lon, lat):
     a = backgrounder(lon, lat)
