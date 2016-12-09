@@ -70,3 +70,6 @@ Linked the functions in events.py to the actual site, by means of app.py.
 Asa result the events sectin of our site is complttly useable.
 Major Bug Discovered--For some addresses: try typing 345 into the address bar and click the first suggested location.
 For this location, after hitting enter, the site breaks, it supposedlly du eto ine 58 in app.py. I stronglly suspect, due to error messages and the like that teh error is due to non ascii charechters that are being pulled from teh foursquare api.
+
+asherL--2016-12-09 0:52
+After creating a fxn in weather.py that takes in longitude and latitude and returns a list of a description of the weather, temperature, and humidity, I have attempted to enable app.py to use this info. I have tried to test it, but for some reason app.py will not print out the list even in the command line. Also I edited home.html to put in a place to display temp and humidity.
