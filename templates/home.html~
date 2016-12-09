@@ -153,9 +153,6 @@ label {
 	  <br>
 	  {{view_address}}
 	  <br>
-	  The weather is currently:
-	  <br>
-	  {{view_weather}}
 	  <!-- PUT THE VARIOUS STUFF HERE -->
 
 	  <!--the map procurement mechanism-->
