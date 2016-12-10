@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-import json, os, utils.maps, utils.foursquare, utils.movies, utils.events, utils.weather
+import json, os, utils.maps, utils.foursquare, utils.movies, utils.events
 
 app = Flask(__name__)
 
@@ -44,30 +44,39 @@ def overview():
     map_code = utils.maps.get_map_query(location)
 
     venueList = []
+    markerList = []
     bigL = []
-    queries = ["food", "coffee", "shops", "outdoors", "movies"]
+    queries = ["food", "coffee", "shops", "outdoors"]
     for q in queries:
-        venueList.append(utils.movies.get_movies(lat, lon, q, 4))
+        venueList.append(utils.foursquare.get_venues(lat, lon, q, 0))
+        markerList.append(utils.foursquare.get_venues(lat, lon, q,1))
+    i = 0
+    j = 0
+    length = len(venueList)
+    while i < length:
+        while j < length:
+            bigL.append([str(venueList[i][j].replace("'",'')), markerList[i][j][0],markerList[i][j][1], j])
+            j +=1
+        i +=1
     #movies section
+    queries.append("movie theaters")
+    venueList.append(utils.movies.get_movies(lat, lon, 4))
 
     #events section
     queries.append("events")
-    venueList.append([utils.events.get_events(lat, lon, 5)])
-    the_weather = (utils.weather.main(lat, lon))
+    venueList.append(utils.events.get_events(lat, lon, 10))
 
-    #venueList
-    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon, coords=venueList, view_weather=the_weather)
+    #weathers section                                                                                                                                         
+    #queries.append("weather")
+    #venueList.append(utils.weather.main(lat, lon))
+    print(utils.weather.main(lat, lon))
+    
+
+    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon, coords=bigL)
 
 
-
-@app.route("/results/<query>/<lat>/<lon>", methods=["GET","POST"])
-def detailed_search(query, lat, lon):
-    venueList = []
-    bigL = []
-    venueList=(utils.movies.get_movies(lat, lon, query, 10))
-    i = 0
-    length = len(venueList)
-    return render_template("results.html", info=venueList,clat=lat, clon = lon)
+    
+    
 
 
 
@@ -90,3 +99,5 @@ def carts():
 if __name__ == "__main__":
     app.debug = True
     app.run()
+
+overview()

@@ -153,22 +153,17 @@ label {
 	  <br>
 	  {{view_address}}
 	  <br>
-	  The weather is currently:
-	  <br>
-	  {{view_weather[0]}} |
-	  {{view_weather[1]}} |
-	  {{view_weather[2]}}
 	  <!-- PUT THE VARIOUS STUFF HERE -->
-<br>
+
 	  <!--the map procurement mechanism-->
      Near By:
 
      <div class="row">
        {% for v in venues[:2] %}
        <div class="small-5 columns" style="background-color:white">
-        <strong> <a href="results/{{q[venues.index(v)]}}/{{clat}}/{{clon}}">{{q[venues.index(v)]}}</a>  </strong><br>
+        <strong> {{q[venues.index(v)]}} </strong><br>
          {% for name in v[:4] %}
-         {{name[0]}}
+         {{name}}
          <br>
        {% endfor %}
 
@@ -181,9 +176,9 @@ label {
           <div class="row">
             {% for v in venues[2:4] %}
             <div class="small-5 columns" style="background-color:white">
-                <strong><a href="results/{{q[venues.index(v)]}}/{{clat}}/{{clon}}">{{q[venues.index(v)]}}</a>  </strong><br>
+                <strong> {{q[venues.index(v)]}} </strong><br>
               {% for name in v[:4] %}
-              {{name[0]}}
+              {{name}}
               <br>
             {% endfor %}
 
@@ -196,9 +191,9 @@ label {
 	  <div class="row">
             {% for v in venues[4:6] %}
             <div class="small-5 columns" style="background-color:white">
-                <strong><a href="results/{{q[venues.index(v)]}}/{{clat}}/{{clon}}">{{q[venues.index(v)]}}</a>   </strong><br>
+                <strong> {{q[venues.index(v)]}} </strong><br>
               {% for name in v[:4] %}
-                {{name[0]}}
+              {{name}}
               <br>
             {% endfor %}
 

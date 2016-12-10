@@ -7,15 +7,15 @@ def setup(lon, lat):
     result = request.read()
     d = json.loads(result)
     return d
-    
+
 '''
 for key in d:
-    if (key == "hourly"): 
+    if (key == "hourly"):
         for k2 in d[key]:
             print k2
             print "corresponds to"
             print d[key][k2]
-            print 
+            print
 #use icon to create a getBg fxn
 
 '''
@@ -25,11 +25,11 @@ def backgrounder(lon, lat):
         if (key == "hourly"):
             for k2 in d[key]:
                 if (k2 == "icon"):
-                    
-                    print d[key][k2]
+
+                    #print d[key][k2]
                     return d[key][k2]
 
-                
+
 def temp(lon, lat):
     d = setup(lon, lat)
     for key in d:
@@ -48,11 +48,11 @@ def humidity(lon, lat):
         if (key == "hourly"):
             for k2 in d[key]:
                 if (k2 == "data"):
-#                    print d[key][k2][0]                                                                                                                                                                    
+#                    print d[key][k2][0]
                     for k3 in d[key][k2][0]:
                         if (k3 == "humidity"):
                             return d[key][k2][0][k3]
-                    #return d[key][k2]                                                                                                                                                                      
+                    #return d[key][k2]
 def main(lon, lat):
     a = backgrounder(lon, lat)
     b = str(temp(lon, lat))
@@ -63,15 +63,15 @@ def main(lon, lat):
     L.append(c)
     return L
 
-                    
 
-            
+
+
 #backgrounder()
-backgrounder(74, 10)
-print()
-print()
-temp(74, 10)
-print 
-print
-humidity(74, 10)
-print(main(74,10))
+#backgrounder(74, 10)
+#print()
+#print()
+#temp(74, 10)
+#print
+#print
+#humidity(74, 10)
+#print(main(74,10))

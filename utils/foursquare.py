@@ -8,20 +8,26 @@ def get_venues(lat, lon, query, n, num):
     request = urllib2.urlopen(url)
     result = request.read()
     d = json.loads(result)
-    venues = d["response"]["groups"][0]["items"][:num]
+    venues = d["response"]["groups"][0]["items"]
     llist = []
+    count = 0
     for v in venues:
         if n==0:
+            count += 1
             venue = v["venue"]["name"]
             llist.append(venue)
         if n == 1:
             try:
                 lat = v["venue"]["location"]["labeledLatLngs"][0]["lat"]
                 lng = v["venue"]["location"]["labeledLatLngs"][0]["lng"]
+                count += 1
+                llist.append([lat,lng])
             except:
-                lat = 0
-                lng = 0
-            llist.append([lat,lng])
-    return llist[:num]
+                lat = v["venue"]["location"]["lat"]
+                lng = v["venue"]["location"]["lng"]
+            #llist.append([lat,lng])
+        if count == num:
+            break
+    return llist
 
-#print get_venues(40.008302846234, -73.972183912863, "food", 0, 4)
+mar = get_venues(40.008302846234, -73.972183912863, "food", 1, 10)
