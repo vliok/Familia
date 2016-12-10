@@ -54,8 +54,6 @@ def overview():
     queries.append("events")
     venueList.append([utils.events.get_events(lat, lon, 5)])
     the_weather = (utils.weather.main(lat, lon))
-
-    #venueList
     return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon, coords=venueList, view_weather=the_weather)
 
 
