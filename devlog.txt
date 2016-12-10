@@ -80,3 +80,6 @@ Bugs: weather's format needs to be wokred on.
 
 kathyL -- 2016-12-08 7:55
 made changes to api algo, code is more efficient and cleaner now
+
+kathyL -- 2016-12-08 16:14
+wonderful results.html display, showing photos, reviews, ratings, etc
