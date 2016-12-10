@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-import json, os, utils.maps, utils.foursquare, utils.movies, utils.events
+import json, os, utils.maps, utils.foursquare, utils.movies, utils.events, utils.weather
 
 app = Flask(__name__)
 
@@ -69,10 +69,11 @@ def overview():
     #weathers section                                                                                                                                         
     #queries.append("weather")
     #venueList.append(utils.weather.main(lat, lon))
-    print(utils.weather.main(lat, lon))
-    
+    #print(utils.weather.main(lat, lon))
 
-    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon, coords=bigL)
+    the_weather = utils.weather.main(lat, lon)
+
+    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon, coords=bigL, view_weather=the_weather)
 
 
     

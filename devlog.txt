@@ -73,3 +73,7 @@ For this location, after hitting enter, the site breaks, it supposedlly du eto i
 
 asherL--2016-12-09 0:52
 After creating a fxn in weather.py that takes in longitude and latitude and returns a list of a description of the weather, temperature, and humidity, I have attempted to enable app.py to use this info. I have tried to test it, but for some reason app.py will not print out the list even in the command line. Also I edited home.html to put in a place to display temp and humidity.
+
+felixR -- 2016-12-09 11:40
+Fixed the issues with the weather display. This is issues were due to print statements being used in liue of return statements, and the omission of the needed importation of the weather.py file. As a result, weather can now be displayed.
+Bugs: weather's format needs to be wokred on.
