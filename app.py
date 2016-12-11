@@ -81,18 +81,7 @@ def detailed_search(query, lat, lon):
     length = len(venueList)
     return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList)
 
-def carts():
-    url = "./static/carts.json"
-    f = open(url, "r").read()
-    d = json.loads(f)
-    carts = d["data"]
-    retL = []
-    for c in carts:
-        lat = c[-5]
-        lng = c[-4]
-        if len(lat) > 7:
-            retL.append([c[0],lat,lng])
-    print retL
+
 
 #print carts()
 

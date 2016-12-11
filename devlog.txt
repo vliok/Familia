@@ -81,5 +81,8 @@ Bugs: weather's format needs to be wokred on.
 kathyL -- 2016-12-10 00:26
 made changes to api algo, code is more efficient and cleaner now
 
-kathyL -- 2016-12-08 16:14
+kathyL -- 2016-12-10 16:14
 wonderful results.html display, showing photos, reviews, ratings, etc
+
+kathyL -- 2016-12-10 23:15
+replaced outdoors activity with music events, shows of current day. wrote initial db signup and login fxns
