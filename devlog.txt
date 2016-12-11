@@ -86,3 +86,7 @@ wonderful results.html display, showing photos, reviews, ratings, etc
 
 kathyL -- 2016-12-10 23:15
 replaced outdoors activity with music events, shows of current day. wrote initial db signup and login fxns
+
+felixR -- 2016-12-11 11:30
+added the functions for events.py. These fxns allow acess the events lat/lon, picture--almost no one has a picture (we will probablly not use this) and description
+bugs: when running the app.py, there seems to eb an issue with the fxn "get_music". 403 forbidden
