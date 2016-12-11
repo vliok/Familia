@@ -57,3 +57,6 @@ def getGoogleJSON(origin, destination, mode):
         else:
                 rlist = d['routes']
                 return rlist
+
+#print reverse_geo({'lat':40.23847293463274, 'lng': -73.9})#[-12:-7]
+#print geo_loc("345 Chambers Street NY")

@@ -45,21 +45,31 @@ def overview():
 
     venueList = []
     bigL = []
-    queries = ["food", "coffee", "shops", "outdoors", "movies"]
+    queries = ["food", "coffee", "shops", "movies"]
     for q in queries:
         venueList.append(utils.movies.get_movies(lat, lon, q, 4))
     #movies section
 
-    #events section
+    queries.append("music")
+    zipcode = utils.maps.reverse_geo({'lat':float(lat), 'lng':float(lon)})[-12:-7]
+    venueList.append(utils.movies.getMusic(zipcode))
+    #music events section
+
     queries.append("events")
     venueList.append([utils.events.get_events(lat, lon, 5)])
+    #events section
+    
     the_weather = (utils.weather.main(lat, lon))
+    #weather section
+    
     return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon, coords=venueList, view_weather=the_weather)
 
 
 
 @app.route("/results/<query>/<lat>/<lon>", methods=["GET","POST"])
 def detailed_search(query, lat, lon):
+    #if query == "music":
+        
     vList = []
     idList = []
     bigL = []
@@ -70,9 +80,6 @@ def detailed_search(query, lat, lon):
     i = 0
     length = len(venueList)
     return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList)
-
-
-
 
 def carts():
     url = "./static/carts.json"
