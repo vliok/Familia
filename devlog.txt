@@ -93,3 +93,6 @@ bugs: when running the app.py, there seems to eb an issue with the fxn "get_musi
 
 asherL -- 2016-12-11 11:46
 created db for events so that users can save things. discussed w/ Kathy re the structure of the db
+
+kathyL -- 2016-12-11 23:15
+added halal coordinates and icon to map
