@@ -1,18 +1,18 @@
 import json
 def carts():
-    url = "../static/carts.json"
+    url = "/carts.json"
     f = open(url, "r").read()
     d = json.loads(f)
-    carts = d["data"][40000:40050]
+    carts = d["data"][40000:40005]
     retL = []
     for c in carts:
         lat = c[-5]
         lng = c[-4]
         try:
             if len(lat) > 7:
-                retL.append([c[0],lat,lng])
+                retL.append([c[0],str(lat),str(lng)])
         except:
             pass
-    print retL
+    return retL
 
-print carts()
+#print carts()

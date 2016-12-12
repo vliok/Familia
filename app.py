@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-import json, os, utils.maps, utils.foursquare, utils.movies, utils.events, utils.weather
+import json, os, utils.maps, utils.movies, utils.events, utils.weather #, utils.carts
 
 app = Flask(__name__)
 
@@ -58,11 +58,12 @@ def overview():
     queries.append("events")
     venueList.append([utils.events.get_events(lat, lon, 5)])
     #events section
-    
+    queries.append("carts")
+    venueList.append(carts())
     the_weather = (utils.weather.main(lat, lon))
     #weather section
     
-    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon, coords=venueList, view_weather=the_weather)
+    return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon, coords=venueList[0], view_weather=the_weather)
 
 
 
@@ -73,17 +74,37 @@ def detailed_search(query, lat, lon):
     bigL = []
     if query == "music":
         venueList=(utils.movies.getMusicList(utils.maps.reverse_geo({'lat':float(lat), 'lng':float(lon)})[-12:-7]))
-        return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList)    
+        return render_template("results.html", info=venueList,clat=lat, clon = lon, photos=idList, bigL=venueList)
+
+    if query=="carts":
+        venueList = carts()
+        return render_template("results.html", info=venueList,clat=lat, clon = lon, photos=idList, bigL=venueList, halal=True)
+    
     venueList=(utils.movies.get_movies(lat, lon, query, 10))
     for ven in venueList:
         vList.append(ven[:3])
         idList.append(ven[3])
+
     #i = 0
     #length = len(venueList)
     return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList)
 
 
-
+def carts():
+    url = "carts.json"
+    f = open(url, "r").read()
+    d = json.loads(f)
+    carts = d["data"][40005:40050]
+    retL = []
+    for c in carts:
+        lat = c[-5]
+        lng = c[-4]
+        try:
+            if len(lat) > 7:
+                retL.append([c[0],float(lat),float(lng)])
+        except:
+            pass
+    return retL
 #print carts()
 
 if __name__ == "__main__":

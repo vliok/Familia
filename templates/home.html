@@ -207,6 +207,22 @@ label {
           </div>
 
 <br>
+<br>
+
+	  <div class="row">
+            {% for v in venues[6:7] %}
+            <div class="small-5 columns" style="background-color:white">
+                <strong><a href="results/{{q[venues.index(v)]}}/{{clat}}/{{clon}}">{{q[venues.index(v)]}}</a>   </strong><br>
+              {% for name in v[:4] %}
+                {{name[0]}}
+              <br>
+            {% endfor %}
+
+            </div>
+                 {% endfor %}
+          </div>
+
+<br>
 
 
 
