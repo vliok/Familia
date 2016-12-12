@@ -52,7 +52,7 @@ def overview():
 
     queries.append("music")
     zipcode = utils.maps.reverse_geo({'lat':float(lat), 'lng':float(lon)})[-12:-7]
-    venueList.append(utils.movies.getMusic(zipcode))
+    venueList.append(utils.movies.getMusicList(zipcode))
     #music events section
 
     queries.append("events")
@@ -68,17 +68,18 @@ def overview():
 
 @app.route("/results/<query>/<lat>/<lon>", methods=["GET","POST"])
 def detailed_search(query, lat, lon):
-    #if query == "music":
-        
     vList = []
     idList = []
     bigL = []
+    if query == "music":
+        venueList=(utils.movies.getMusicList(utils.maps.reverse_geo({'lat':float(lat), 'lng':float(lon)})[-12:-7]))
+        return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList)    
     venueList=(utils.movies.get_movies(lat, lon, query, 10))
     for ven in venueList:
         vList.append(ven[:3])
         idList.append(ven[3])
-    i = 0
-    length = len(venueList)
+    #i = 0
+    #length = len(venueList)
     return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList)
 
 
