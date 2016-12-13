@@ -79,9 +79,22 @@
             </div>
           </div>
         {% endfor %}
-        </div></div>
-                 </div>
       </div>
-    </div>
+
+	<div class="tabs-panel is-active" id="panel2">
+	  {% for i in addInfo %}
+	  <div class="media-object stack-for-small">
+            <div class="media-object-section">
+              <h5>{{i}}</h5>
+            </div>
+          </div>
+          {% endfor %}
+	</div>
+
+
+</div>
+</div>
+</div>
+</div>
 
 {% endblock %}

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-import json, os, utils.maps, utils.movies, utils.events, utils.weather #, utils.carts
+import json, os, utils.maps, utils.movies, utils.events, utils.weather, utils.tmdb #, utils.carts
 
 app = Flask(__name__)
 
@@ -85,9 +85,12 @@ def detailed_search(query, lat, lon):
         vList.append(ven[:3])
         idList.append(ven[3])
 
+    #movies in theaters
+    secondTab = utils.tmdb.get_popmovies()
+
     #i = 0
     #length = len(venueList)
-    return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList)
+    return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList, addInfo=secondTab)
 
 
 def carts():
