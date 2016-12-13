@@ -14,7 +14,7 @@
   </head>
   <style>
   body{
-  background-image: (view_weather[1]+".jpeg");
+  background-image: (view_weather);
     background-color: #82E5F1;
   }
 label {
