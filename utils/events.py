@@ -10,17 +10,25 @@ def opener(lat, lon):
     d = json.loads(result)
     return d
 
-
+#returns a list holding a list of the importnat info about events
+#each elemnet in the big list corresponds to 1 event
+#in each element there is 1 list, this list holds:
+#in the following order->
+#
+#the name of teh event
+#the description of the event
+#the lat and lon of the event-if there is any
+#photo for the event, no event that I have seen has this
 def get_events(lat, lon, num):
     new_lat = str(lat)
     new_lon = str(lon)
 
     d = opener(new_lat, new_lon)
 
-    name = get_events_name(new_lat, new_lon, num)
-    desc = get_events_description(new_lat, new_lon, num)
-    lat_lon = get_events_lat_lon(new_lat, new_lon, num)
-    photo = get_events_photo(new_lat, new_lon, num)
+    name = get_events_name(new_lat, new_lon, num, d)
+    desc = get_events_description(new_lat, new_lon, num, d)
+    lat_lon = get_events_lat_lon(new_lat, new_lon, num, d)
+    photo = get_events_photo(new_lat, new_lon, num, d)
     
     ret_list=[]
     i=0
@@ -39,11 +47,11 @@ def get_events(lat, lon, num):
 
 
 
-def get_events_name(lat, lon, num):
+def get_events_name(lat, lon, num, d):
     new_lat = str(lat)
     new_lon = str(lon)
 
-    d = opener(new_lat, new_lon)
+    #d = opener(new_lat, new_lon)
     
     ret_list=[]
     i=0
@@ -58,11 +66,11 @@ def get_events_name(lat, lon, num):
 
 #if the event has a description it is returned, else, "NO DESCRIPTION"
 #the values are passed in alist, size determined by n
-def get_events_description(lat, lon, num):
+def get_events_description(lat, lon, num, d):
     new_lat = str(lat)
     new_lon = str(lon)
 
-    d = opener(new_lat, new_lon)
+    #d = opener(new_lat, new_lon)
     
     ret_list=[]
     i=0
@@ -81,11 +89,11 @@ def get_events_description(lat, lon, num):
 #returned in thr following order: ["lat1,lon1", "lat2,lon2"]
 #it is passed as a str, so one must parse at the comma and then
 #turn the str into an int
-def get_events_lat_lon(lat, lon, num):
+def get_events_lat_lon(lat, lon, num, d):
     new_lat = str(lat)
     new_lon = str(lon)
 
-    d = opener(new_lat, new_lon)
+    #d = opener(new_lat, new_lon)
     
     ret_list=[]
     i=0
@@ -101,11 +109,11 @@ def get_events_lat_lon(lat, lon, num):
     return ret_list
 
 #ALMOST NO ONE HAS A PHOTO< WE SHOULD NOT USE THIS
-def get_events_photo(lat, lon, num):
+def get_events_photo(lat, lon, num, d):
     new_lat = str(lat)
     new_lon = str(lon)
 
-    d = opener(new_lat, new_lon)
+    #d = opener(new_lat, new_lon)
     
     ret_list=[]
     i=0
@@ -126,4 +134,4 @@ def get_events_photo(lat, lon, num):
 #print(get_events(40.713509699999996,-73.9859414, 10))
 #print(get_events_description(40.713509699999996,-73.9859414, 10))
 #https://api.meetup.com/find/events?key=5648714275751c2a37271d242b5846&lon=-73.9859414&lat=40.713509699999996
-#print(get_events(40.713509699999996,-73.9859414,10))
+#print(get_events(40.713509699999996,-73.9859414,5))

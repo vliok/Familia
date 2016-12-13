@@ -96,3 +96,8 @@ created db for events so that users can save things. discussed w/ Kathy re the s
 
 kathyL -- 2016-12-11 23:15
 added halal coordinates and icon to map
+
+felxR -- 2016-12-12 21:07
+added functionallity to the events
+the fxn get_events(lat, lon, num, d) now return a 2D list structure that in each element holds a list for each event that was specified
+maps still do not appear--will need to be resolved
