@@ -2,14 +2,48 @@ import urllib2, json, os, urllib
 
 key = "5648714275751c2a37271d242b5846"
 
-def get_events(lat, lon, num):
-    new_lat = str(lat)
-    new_lon = str(lon)
-    
-    url = "https://api.meetup.com/find/events?key="+key+"&lon="+new_lon+"&lat="+new_lat
+#opens and returns a dict
+def opener(lat, lon):
+    url = "https://api.meetup.com/find/events?key="+key+"&lon="+lon+"&lat="+lat
     request = urllib2.urlopen(url)
     result = request.read()
     d = json.loads(result)
+    return d
+
+
+def get_events(lat, lon, num):
+    new_lat = str(lat)
+    new_lon = str(lon)
+
+    d = opener(new_lat, new_lon)
+
+    name = get_events_name(new_lat, new_lon, num)
+    desc = get_events_description(new_lat, new_lon, num)
+    lat_lon = get_events_lat_lon(new_lat, new_lon, num)
+    photo = get_events_photo(new_lat, new_lon, num)
+    
+    ret_list=[]
+    i=0
+
+    while i<num:
+        info = []
+        info.append(name[i])
+        info.append(desc[i])
+        info.append(lat_lon[i])
+        info.append(photo[i])
+        
+        ret_list.append(info)
+        i+=1
+
+    return ret_list
+
+
+
+def get_events_name(lat, lon, num):
+    new_lat = str(lat)
+    new_lon = str(lon)
+
+    d = opener(new_lat, new_lon)
     
     ret_list=[]
     i=0
@@ -27,11 +61,8 @@ def get_events(lat, lon, num):
 def get_events_description(lat, lon, num):
     new_lat = str(lat)
     new_lon = str(lon)
-    
-    url = "https://api.meetup.com/find/events?key="+key+"&lon="+new_lon+"&lat="+new_lat
-    request = urllib2.urlopen(url)
-    result = request.read()
-    d = json.loads(result)
+
+    d = opener(new_lat, new_lon)
     
     ret_list=[]
     i=0
@@ -53,11 +84,8 @@ def get_events_description(lat, lon, num):
 def get_events_lat_lon(lat, lon, num):
     new_lat = str(lat)
     new_lon = str(lon)
-    
-    url = "https://api.meetup.com/find/events?key="+key+"&lon="+new_lon+"&lat="+new_lat
-    request = urllib2.urlopen(url)
-    result = request.read()
-    d = json.loads(result)
+
+    d = opener(new_lat, new_lon)
     
     ret_list=[]
     i=0
@@ -76,11 +104,8 @@ def get_events_lat_lon(lat, lon, num):
 def get_events_photo(lat, lon, num):
     new_lat = str(lat)
     new_lon = str(lon)
-    
-    url = "https://api.meetup.com/find/events?key="+key+"&lon="+new_lon+"&lat="+new_lat
-    request = urllib2.urlopen(url)
-    result = request.read()
-    d = json.loads(result)
+
+    d = opener(new_lat, new_lon)
     
     ret_list=[]
     i=0
@@ -99,6 +124,6 @@ def get_events_photo(lat, lon, num):
 #print(get_events_photo(40.713509699999996,-73.9859414, 10))
 #print(get_events_lat_lon(40.713509699999996,-73.9859414, 10))
 #print(get_events(40.713509699999996,-73.9859414, 10))
-#print(get_events_description(40.713509699999996,-73.9859414, 1))
+#print(get_events_description(40.713509699999996,-73.9859414, 10))
 #https://api.meetup.com/find/events?key=5648714275751c2a37271d242b5846&lon=-73.9859414&lat=40.713509699999996
-#print(get_events(40.713509699999996,-73.9859414))
+#print(get_events(40.713509699999996,-73.9859414,10))
