@@ -105,3 +105,6 @@ maps still do not appear--will need to be resolved
 vincentL -- 2016-12-12 23:18
 used tmdb api to get a list of movies
 to be implemented in app.py and results.html
+
+asherL -- 2016-12-13 1:42
+in home.html attempted to set background equal to an image corresponding to the weather api's given icon. downloaded and named a set of images to serve as backgrounds
