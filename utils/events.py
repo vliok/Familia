@@ -45,7 +45,21 @@ def get_events(lat, lon, num):
 
     return ret_list
 
+def get_event_name(lat, lon, num):
+    new_lat = str(lat)
+    new_lon = str(lon)
 
+    d = opener(new_lat, new_lon)
+    
+    ret_list=[]
+    i=0
+
+    while i<num:
+        info = d[i]["name"]
+        ret_list.append(info)
+        i+=1
+
+    return ret_list
 
 def get_events_name(lat, lon, num, d):
     new_lat = str(lat)

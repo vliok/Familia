@@ -56,7 +56,9 @@ def overview():
     #music events section
 
     queries.append("events")
-    venueList.append([utils.events.get_events(lat, lon, 5)])
+    #this gives you the full list
+    #venueList.append([utils.events.get_events(lat, lon, 5)]) 
+    venueList.append([utils.events.get_event_name(lat, lon, 5)])
     #events section
     queries.append("carts")
     venueList.append(carts())
