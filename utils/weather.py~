@@ -57,12 +57,10 @@ def main(lon, lat):
     a = backgrounder(lon, lat)
     b = str(temp(lon, lat))
     c = str(humidity(lon, lat))
-    d = "../images/" + a + ".jpeg"
     L = []
     L.append(a)
     L.append(b)
     L.append(c)
-    L.append(d)
     return L
 
 
