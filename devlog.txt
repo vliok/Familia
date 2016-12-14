@@ -108,3 +108,10 @@ to be implemented in app.py and results.html
 
 asherL -- 2016-12-13 1:42
 in home.html attempted to set background equal to an image corresponding to the weather api's given icon. downloaded and named a set of images to serve as backgrounds
+
+felixR -- 2016-12-13 19:05
+Moved all of the images for the weather backkgrounds into an "images" folder.
+Got the map to work.
+Spruced up the presentation of the events
+Bugs: I ran out of calls to our music api, the limit that they impose is somewhat onerous
+The music api only really works in NYC area.
