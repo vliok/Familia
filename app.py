@@ -95,6 +95,10 @@ def detailed_search(query, lat, lon):
     #length = len(venueList)
     return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList, addInfo=secondTab)
 
+@app.route('/test/')
+def test():
+    return render_template("test.html")
+
 
 def carts():
     url = "carts.json"

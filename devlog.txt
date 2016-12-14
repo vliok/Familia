@@ -118,3 +118,8 @@ The music api only really works in NYC area.
 
 asherL -- 2016-12-14 0:21
 Tried to get background image working. I have no idea why they're not working now :(. I tested the images in a test.html file and they worked, and they seem to be loading on this page, but not actually displaying and idk why :(. I am sad.
+
+kathyL -- 2016-12-14 12:08
+moved images back to image folder
+moved image folder to static folder
+probably fixed the image thingy

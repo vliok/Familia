@@ -13,15 +13,17 @@
             type="text/javascript"></script>
   </head>
   <style>
-html{
-  background-image: url("{{view_images}}");
-    background-color: #82E5F1;
+body{
+  background-color: #82E5F1;
+  background: url("/static/images/{{view_images}}");
+  background-repeat:no-repeat;
+  background-size: 100% 100%;
 }
 label {
   display: inline-block;
 }
   </style>
-  <body>
+  <body >
 
 
 
@@ -64,7 +66,7 @@ label {
 </div>
   <!-- THE PART WHERE THE HTML PAGE ASKS FOR ACCESS TO YOUR CURRENT LOCATION
 
--->
+
 
     <script>
     var x=document.getElementById("demo");
@@ -86,7 +88,7 @@ label {
       document.getElementById("lon").value=position.coords.longitude;
       //document.getElementById("loc_form").submit();
       }
-    </script>
+    </script>-->
     <!-- Geolocation stuff
     <form id = "loc_form" action="results" method="POST">
     <input class = "form-control" id="lat" type="text" name="lat" style="width: 300px;">
@@ -97,6 +99,7 @@ label {
     <BR><BR>
 -->
 <!-- THE INTO WHERE YOU TYPE YOUR ADRESS -->
+
 
     <form class="pure-form pure-form-aligned" action='results' method="POST">
 
