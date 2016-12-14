@@ -14,7 +14,7 @@
   </head>
   <style>
   body{
-  background-image: (view_weather[1]+".jpeg");
+  background-image: (view_weather[0]+".jpeg");
     background-color: #82E5F1;
   }
 label {
@@ -161,8 +161,20 @@ label {
 	  {{view_weather[2]}}
 	  <!-- PUT THE VARIOUS STUFF HERE -->
 <br>
-	  <!--the map procurement mechanism-->
-     Near By:
+<!--the map procurement mechanism-->
+
+<iframe
+   width="600"
+   height="450"
+   frameborder="0" style="border:0"
+   src= {{get_map}} allowfullscreen>
+</iframe>
+
+<br>
+<br>
+
+<!-- the suggestions stuff-->
+Near By:
 
      <div class="row">
        {% for v in venues[:2] %}
