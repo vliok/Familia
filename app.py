@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-import json, os, utils.maps, utils.movies, utils.events, utils.weather, utils.tmdb #, utils.carts
+import json, os, urllib, utils.maps, utils.movies, utils.events, utils.weather, utils.tmdb #, utils.carts
 
 app = Flask(__name__)
 
@@ -97,7 +97,8 @@ def detailed_search(query, lat, lon):
 
 @app.route('/test/')
 def test():
-    return render_template("test.html")
+    travelTime = utils.maps.getGoogleJSON(urllib.quote_plus("345 Chambers Street 10282"), urllib.quote_plus("Columbia University New York"), "transit")
+    return render_template("test.html", rlistT=travelTime)
 
 
 def carts():

@@ -1,8 +1,9 @@
 import urllib2, json, os, urllib
-
+import time
 
 key="AIzaSyAjRmGMuK_IQ2UUmYLHThc7JBdzZ4N22BQ"
 keym="AIzaSyCIN3GS736I958G9695m5INnU7_vg4TLkE"
+keyd="AIzaSyBM5QDiVYL7meWm-Lz_J65CmMTsuc2iu7c"
 
 #get map query
 def get_map_query(loc):
@@ -48,7 +49,7 @@ def getGoogleJSON(origin, destination, mode):
         if isinstance(destination,dict):
                 dest = str(destination["latitude"])+","+str(destination["longitude"])
                 destination = destination['stationName']
-        url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&mode=%s&departure_time=%s&key=%s" % (org, dest, mode, now, key)
+        url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&mode=%s&departure_time=%s&key=%s" % (org, dest, mode, now, keyd)
         request = urllib2.urlopen(url)
         result = request.read()
         d = json.loads(result)
@@ -58,5 +59,7 @@ def getGoogleJSON(origin, destination, mode):
                 rlist = d['routes']
                 return rlist
 
+#print getGoogleJSON({'latitude':40.23847293463274, 'longitude': -73.9}, {'latitude':40.982372863, 'longitude': -73.9}, "driving")
+#print getGoogleJSON(urllib.quote_plus("345 Chambers Street 10282"), urllib.quote_plus("Columbia University New York"), "transit")
 #print reverse_geo({'lat':40.23847293463274, 'lng': -73.9})#[-12:-7]
 #print geo_loc("345 Chambers Street NY")

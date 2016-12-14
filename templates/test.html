@@ -10,26 +10,40 @@ background-repeat:no-repeat;
 </style>
 
 <body>
-asdasdojabd
-<br>
 
-asdasdojabd
-<br>
+  <center>
+      <h3>MTA Travel Time: {{rlistT[0]['legs'][0]['duration']['text']}}</h3>
+    </center>
+    
+    {% for stepdict in rlistT[0]['legs'][0]['steps'] %}
+    <br>
+    <b>Leg {{rlistT[0]['legs'][0]['steps'].index(stepdict)+1}}</b>: {{stepdict['html_instructions']}}. <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ({{stepdict['distance']['text']}} in {{stepdict['duration']['text']}})<br>
 
-asdasdojabd
-<br>
-
-asdasdojabd
-<br>
-
-asdasdojabd
-<br>
-
-asdasdojabd
-<br>
-
-asdasdojabd
-<br>
+    {% if stepdict['travel_mode']=="TRANSIT" %}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src={{stepdict['transit_details']['line']['icon']}}>
+    {% endif %}
+    <br>
+    {% if stepdict['travel_mode']=="TRANSIT" %}
+    <iframe
+       width='70%'
+       height='350px'
+       frameborder="0" style="border:0"
+       src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBM5QDiVYL7meWm-Lz_J65CmMTsuc2iu7c&origin={{stepdict['start_location']['lat']}},{{stepdict['start_location']['lng']}}&destination={{stepdict['end_location']['lat']}},{{stepdict['end_location']['lng']}}&avoid=tolls|highways&mode=transit">
+    </iframe>
+    <br>
+    {% elif stepdict['travel_mode']=="WALKING" %}
+    <iframe
+       width='70%'
+       height='350px'
+       frameborder="0" style="border:0"
+       src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBM5QDiVYL7meWm-Lz_J65CmMTsuc2iu7c&origin={{stepdict['start_location']['lat']}},{{stepdict['start_location']['lng']}}&destination={{stepdict['end_location']['lat']}},{{stepdict['end_location']['lng']}}&avoid=tolls|highways&mode=walking">
+    </iframe>
+    <br>
+    {% endif %}
+    {% endfor %}
 </body>
 
 
