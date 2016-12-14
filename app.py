@@ -49,12 +49,12 @@ def overview():
     for q in queries:
         venueList.append(utils.movies.get_movies(lat, lon, q, 4))
     #movies section
-
+    '''
     queries.append("music")
     zipcode = utils.maps.reverse_geo({'lat':float(lat), 'lng':float(lon)})[-12:-7]
     venueList.append(utils.movies.getMusicList(zipcode))
     #music events section
-
+'''
     queries.append("events")
     #this gives you the full list
     #venueList.append([utils.events.get_events(lat, lon, 5)])
@@ -75,14 +75,12 @@ def detailed_search(query, lat, lon):
     vList = []
     idList = []
     bigL = []
-    if query == "music":
-        venueList=(utils.movies.getMusicList(utils.maps.reverse_geo({'lat':float(lat), 'lng':float(lon)})[-12:-7]))
-        return render_template("results.html", info=venueList,clat=lat, clon = lon, photos=idList, bigL=venueList)
-
     if query=="carts":
         venueList = carts()
         return render_template("results.html", info=venueList,clat=lat, clon = lon, photos=idList, bigL=venueList, halal=True)
-
+    if query=="events":
+        venueList = utils.events.get_events(lat, lon, 10)
+        return render_template("results.html", info=venueList,clat=lat, clon = lon, bigL=venueList)
     venueList=(utils.movies.get_movies(lat, lon, query, 10))
     for ven in venueList:
         vList.append(ven[:3])
@@ -93,7 +91,11 @@ def detailed_search(query, lat, lon):
 
     #i = 0
     #length = len(venueList)
-    return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList, addInfo=secondTab)
+    if query=="movies":
+        show=True
+    else:
+        show=False
+    return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList, addInfo=secondTab, show=show)
 
 @app.route('/test/')
 def test():

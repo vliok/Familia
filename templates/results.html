@@ -54,8 +54,8 @@
 
 <div class="small-6 columns">
       <ul class="tabs" data-tabs id="example-tabs">
-        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Reviews</a></li>
-        <li class="tabs-title"><a href="#panel2">Similar Products</a></li>
+        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Results</a></li>
+        <li class="tabs-title"><a href="#panel2">More Info</a></li>
       </ul>
       <div class="tabs-content" data-tabs-content="example-tabs">
         <div class="tabs-panel is-active" id="panel1">
@@ -76,6 +76,7 @@
       </div>
 
 	<div class="tabs-panel is-active" id="panel2">
+{% if show %}
 	  {% for i in addInfo %}
 	  <div class="media-object stack-for-small">
             <div class="media-object-section">
@@ -83,6 +84,7 @@
             </div>
           </div>
           {% endfor %}
+{% endif %}
 	</div>
 
 

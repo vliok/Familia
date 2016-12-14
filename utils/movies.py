@@ -65,7 +65,7 @@ list of events in artist id, name, location, and time starting format
 def get_music(zipcode):
     now = datetime.datetime.now()
     today = str(now.year) + '-' + str(now.month) + '-' + str(now.day)
-    url = "http://api.jambase.com/events?zipCode=" + str(zipcode) + "&radius=0&startDate=" + today +  "&page=0&api_key=" + keymusic
+    url = "http://api.jambase.com/events?zipCode=" + str(zipcode) + "&radius=0&startDate=" + today +  "&page=0&api_key=" + oldkeymusic
     request = urllib2.urlopen(url)
     result = request.read()
     d = json.loads(result)
@@ -86,6 +86,6 @@ def getMusicList(zipcode):
         musicL.append([a[1], latlon['lat'], latlon['lng'], '', "concert", a[2], a[3]])
     return musicL
 
-print getMusicList(10282)
+#print getMusicList(10282)
 #print get_photos('4d49bf534a6d8eec89c92a2d')
 #print get_movies(40.7179464,-74.0139052,"coffee",4)

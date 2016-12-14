@@ -27,7 +27,8 @@ def get_events(lat, lon, num):
 
     name = get_events_name(new_lat, new_lon, num, d)
     desc = get_events_description(new_lat, new_lon, num, d)
-    lat_lon = get_events_lat_lon(new_lat, new_lon, num, d)
+    lat= get_events_lat(new_lat, new_lon, num, d)
+    lon= get_events_lon(new_lat, new_lon, num, d)
     photo = get_events_photo(new_lat, new_lon, num, d)
     
     ret_list=[]
@@ -36,8 +37,9 @@ def get_events(lat, lon, num):
     while i<num:
         info = []
         info.append(name[i])
+        info.append(lat[i])
+        info.append(lon[i])
         info.append(desc[i])
-        info.append(lat_lon[i])
         info.append(photo[i])
         
         ret_list.append(info)
@@ -103,7 +105,27 @@ def get_events_description(lat, lon, num, d):
 #returned in thr following order: ["lat1,lon1", "lat2,lon2"]
 #it is passed as a str, so one must parse at the comma and then
 #turn the str into an int
-def get_events_lat_lon(lat, lon, num, d):
+##def get_events_lat_lon(lat, lon, num, d):
+##    new_lat = str(lat)
+##    new_lon = str(lon)
+##
+##    #d = opener(new_lat, new_lon)
+##    
+##    ret_list=[]
+##    i=0
+##    
+##    while i<num:
+##        try:
+##            info = str(d[i]["venue"]["lat"])+","+str(d[i]["venue"]["lon"])
+##        except:
+##            info = "NO LAT, NO LON"
+##        ret_list.append(info)          
+##        i+=1
+##        
+##    return ret_list
+
+
+def get_events_lat(lat, lon, num, d):
     new_lat = str(lat)
     new_lon = str(lon)
 
@@ -114,9 +136,28 @@ def get_events_lat_lon(lat, lon, num, d):
     
     while i<num:
         try:
-            info = str(d[i]["venue"]["lat"])+","+str(d[i]["venue"]["lon"])
+            info = str(d[i]["venue"]["lat"])
         except:
-            info = "NO LAT, NO LON"
+            info = "NO LAT"
+        ret_list.append(info)          
+        i+=1
+    return ret_list
+
+
+def get_events_lon(lat, lon, num, d):
+    new_lat = str(lat)
+    new_lon = str(lon)
+
+    #d = opener(new_lat, new_lon)
+    
+    ret_list=[]
+    i=0
+    
+    while i<num:
+        try:
+            info = str(d[i]["venue"]["lon"])
+        except:
+            info = "NO LON"
         ret_list.append(info)          
         i+=1
         
