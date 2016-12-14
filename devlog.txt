@@ -115,3 +115,6 @@ Got the map to work.
 Spruced up the presentation of the events
 Bugs: I ran out of calls to our music api, the limit that they impose is somewhat onerous
 The music api only really works in NYC area.
+
+asherL -- 2016-12-14 0:21
+Tried to get background image working. I have no idea why they're not working now :(. I tested the images in a test.html file and they worked, and they seem to be loading on this page, but not actually displaying and idk why :(. I am sad.

@@ -13,10 +13,10 @@
             type="text/javascript"></script>
   </head>
   <style>
-  body{
-  background-image: {{view_weather[3]}}
+
+  background-image: url("{{view_images}}");
     background-color: #82E5F1;
-  }
+
 label {
   display: inline-block;
 }
@@ -53,7 +53,7 @@ label {
     </div>
     <!-- End Top Bar -->
 
-  <body>
+
 
 {% block content %}
 
@@ -310,9 +310,4 @@ Near By:
       $(document).foundation();
     </script>
   </body>
-</html>
-
-  </body>
-
-
 </html>

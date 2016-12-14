@@ -63,7 +63,7 @@ def overview():
     queries.append("carts")
     venueList.append(carts())
     the_weather = (utils.weather.main(lat, lon))
-    the_images = "/images/" + (utils.weather.main(lat, lon))[0] + ".jpeg"
+    the_images = (utils.weather.main(lat, lon))[0] + ".jpg"
     #weather section
 
     return render_template("home.html", action_type="results", address=location, view_address=view_location, status="show_info", get_map=map_code, askIfCorrect=askIfCor, venues=venueList, q=queries, clat=lat, clon=lon, coords=venueList[0], view_weather=the_weather, view_images=the_images)
