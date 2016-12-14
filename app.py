@@ -86,11 +86,12 @@ def detailed_search(query, lat, lon):
         vList.append(ven[:3])
         idList.append(ven[3])
 
+    #address = utils.maps.reverse_geo(lat, lon)
+    
+    #thing = utils.maps.getGoogleJSON(address)
     #movies in theaters
     secondTab = utils.tmdb.get_popmovies()
 
-    #i = 0
-    #length = len(venueList)
     if query=="movies":
         show=True
     else:
