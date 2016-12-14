@@ -2,7 +2,8 @@ import urllib2, json, os, urllib, datetime
 import maps
 
 key = "Q2ZBILRSORPXPLVBNGTX2BOBOYYBPPBBL4KBJDGKY0GEI35F&v=20161206"
-
+keymusic="9yq9eczpfyphhf7d5reeayna"
+oldkeymusic='2pqkwk3rb3crydcdh9dcy6rv'
 """
 Args:
 lat - latitude of original location
@@ -34,7 +35,7 @@ def get_movies(lat,lon, query, lim):
 
 """
 Args:
-venueID - id of venue 
+venueID - id of venue
 
 Return:
 list of url of photos
@@ -63,8 +64,8 @@ list of events in artist id, name, location, and time starting format
 """
 def get_music(zipcode):
     now = datetime.datetime.now()
-    today = str(now.year) + '-' + str(now.month) + '-' + str(now.day) 
-    url = "http://api.jambase.com/events?zipCode=" + str(zipcode) + "&radius=0&startDate=" + today +  "&page=0&api_key=2pqkwk3rb3crydcdh9dcy6rv"
+    today = str(now.year) + '-' + str(now.month) + '-' + str(now.day)
+    url = "http://api.jambase.com/events?zipCode=" + str(zipcode) + "&radius=0&startDate=" + today +  "&page=0&api_key=" + keymusic
     request = urllib2.urlopen(url)
     result = request.read()
     d = json.loads(result)
