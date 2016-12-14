@@ -123,3 +123,4 @@ kathyL -- 2016-12-14 12:08
 moved images back to image folder
 moved image folder to static folder
 probably fixed the image thingy
+test directionsin test file
