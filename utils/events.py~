@@ -1,6 +1,6 @@
-import urllib2, json, os, urllib, keys
+import urllib2, json, os, urllib
 
-key = keys.get_key("Eventbrite")
+key = "5648714275751c2a37271d242b5846"
 
 #opens and returns a dict
 def opener(lat, lon):

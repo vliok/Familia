@@ -1,5 +1,5 @@
-import urllib2, json, urllib
-key = "cc75d8edb8caaac081449e4871136ffe"
+import urllib2, json, urllib, keys
+key = keys.get_key("DarkSky")
 #https://api.darksky.net/forecast/[key]/[latitude],[longitude] (proper format)
 def setup(lon, lat):
     url = "https://api.darksky.net/forecast/cc75d8edb8caaac081449e4871136ffe/"+ str(lon) + "," + str(lat)

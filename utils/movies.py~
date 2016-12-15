@@ -1,8 +1,9 @@
-import urllib2, json, os, urllib, datetime, keys
+import urllib2, json, os, urllib, datetime
 import maps
 
-key = keys.get_key("Foursquare")
-
+key = "Q2ZBILRSORPXPLVBNGTX2BOBOYYBPPBBL4KBJDGKY0GEI35F&v=20161206"
+keymusic="9yq9eczpfyphhf7d5reeayna"
+oldkeymusic='2pqkwk3rb3crydcdh9dcy6rv'
 """
 Args:
 lat - latitude of original location

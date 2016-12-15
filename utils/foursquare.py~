@@ -1,6 +1,6 @@
-import urllib2, json, os, urllib, keys
+import urllib2, json, os, urllib
 
-key = keys.get_key("Foursquare")
+key = "Q2ZBILRSORPXPLVBNGTX2BOBOYYBPPBBL4KBJDGKY0GEI35F&v=20161206"
 
 
 def get_venues(lat, lon, query, n, num):

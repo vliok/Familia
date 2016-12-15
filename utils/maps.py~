@@ -1,9 +1,9 @@
 import urllib2, json, os, urllib, keys
 import time
 
-key=keys.get_key("Geolocation")
-keym=keys.get_key("Maps")
-keyd=keys.get_key("Destination")
+key="AIzaSyAjRmGMuK_IQ2UUmYLHThc7JBdzZ4N22BQ"
+keym="AIzaSyCIN3GS736I958G9695m5INnU7_vg4TLkE"
+keyd="AIzaSyBM5QDiVYL7meWm-Lz_J65CmMTsuc2iu7c"
 
 #get map query
 def get_map_query(loc):
