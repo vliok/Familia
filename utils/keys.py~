@@ -1,4 +1,0 @@
-def get_key(API):
-    if API == "Eventbrite":
-        return "5648714275751c2a37271d242b5846"
-    if API ==
