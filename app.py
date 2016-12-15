@@ -74,6 +74,8 @@ def overview():
 def detailed_search(query, lat, lon):
     vList = []
     idList = []
+    dirList= []
+    trailList={}
     bigL = []
     if query=="carts":
         venueList = carts()
@@ -85,18 +87,19 @@ def detailed_search(query, lat, lon):
     for ven in venueList:
         vList.append(ven[:3])
         idList.append(ven[3])
-
+        dirList.append(utils.maps.getGoogleJSON(utils.maps.reverse_geo({'lat':lat, 'lng':lon}), utils.maps.reverse_geo({'lat':ven[1], 'lng': ven[2]}), "transit"))
     #address = utils.maps.reverse_geo(lat, lon)
-    
+
     #thing = utils.maps.getGoogleJSON(address)
     #movies in theaters
     secondTab = utils.tmdb.get_popmovies()
-
+    for m in secondTab:
+        trailList[str(m)] = (utils.movies.getTrailer(str(m)))
     if query=="movies":
         show=True
     else:
         show=False
-    return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList, addInfo=secondTab, show=show)
+    return render_template("results.html", info=vList,clat=lat, clon = lon, photos=idList, bigL=venueList, addInfo=secondTab, show=show, addInfo2=dirList, trailer=trailList)
 
 @app.route('/test/')
 def test():
@@ -108,14 +111,14 @@ def carts():
     url = "carts.json"
     f = open(url, "r").read()
     d = json.loads(f)
-    carts = d["data"][40005:40050]
+    carts = d["data"][1905:2991]
     retL = []
     for c in carts:
         lat = c[-5]
         lng = c[-4]
         try:
             if len(lat) > 7:
-                retL.append([c[0],float(lat),float(lng)])
+                retL.append([str(c[9]),float(lat),float(lng)])
         except:
             pass
     return retL

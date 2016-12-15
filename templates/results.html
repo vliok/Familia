@@ -80,10 +80,28 @@
 	  {% for i in addInfo %}
 	  <div class="media-object stack-for-small">
             <div class="media-object-section">
-              <h5>{{i}}</h5>
+              <h5>{{i}}</h5> <iframe src="{{trailer[i]}}"></iframe>
             </div>
           </div>
           {% endfor %}
+{% else %}
+
+
+{% for i in addInfo2 %}
+
+<div class="media-object stack-for-small">
+        <div class="media-object-section">
+Travel Time: {{i[0]['legs'][0]['duration']['text']}}
+{% for stepdict in i[0]['legs'][0]['steps'] %}
+<br>
+<b>Step {{i[0]['legs'][0]['steps'].index(stepdict)+1}}</b>: {{stepdict['html_instructions']}}. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+({{stepdict['distance']['text']}} in {{stepdict['duration']['text']}})<br>
+
+        </div>
+            {% endfor %}
+<hr>      </div>
+      {% endfor %}
 {% endif %}
 	</div>
 

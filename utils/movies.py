@@ -86,6 +86,16 @@ def getMusicList(zipcode):
         musicL.append([a[1], latlon['lat'], latlon['lng'], '', "concert", a[2], a[3]])
     return musicL
 
+def getTrailer(query):
+    query = query.replace(' ', '+')
+    url = "https://www.googleapis.com/youtube/v3/search?part=id&q=" + query + "&type=videos&key=AIzaSyDN0XVQ0Vr0IABfWcW6FsMRUWwPARoKiE8"
+    request = urllib2.urlopen(url)
+    result = request.read()
+    d = json.loads(result)['items']
+    iD= d[0]['id']['videoId']
+    return "https://www.youtube.com/embed/" + iD
+
+#print getTrailer("Underworld: Blood Wars")
 #print getMusicList(10282)
 #print get_photos('4d49bf534a6d8eec89c92a2d')
 #print get_movies(40.7179464,-74.0139052,"coffee",4)

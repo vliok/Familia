@@ -93,7 +93,7 @@ def get_events_description(lat, lon, num, d):
 
     while i<num:
         try:
-            info = d[i]["description"]
+            info = d[i]["description"].replace("<p>", '').replace("</p>",'')
         except:
             info = "NO DESCRIPTION"
         ret_list.append(info)          

@@ -128,3 +128,10 @@ test directionsin test file
 vincentL -- 2016-12-14 16:30
 removed unnecessary buttons
 added home button
+
+kathyL -- 2016-12-154 8:46
+remove music
+put directions in tab
+code trailers get fxn and put that in movies
+get more accurate cart locations
+debufg
