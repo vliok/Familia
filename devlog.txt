@@ -138,3 +138,7 @@ debufg
 
 asherL -- 2016-12-15 0:10
 Felix and I worked a lot on the css, making sure the foundation stuff was working properly, that unneded elements had been deleted, and that the css was saved locally. Also, we made sure to put "Powered by dark sky" so we won't get sued.
+
+felixR -- 2016-12-15 0:14
+Finished up the finishing touches of the project.
+Mostlly described by what Ahser wrote just above
